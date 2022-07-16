@@ -20,7 +20,7 @@ public class Transferenciaimpl implements Transferencia {
 
         System.out.println("Conta de débito: " + numeroContaOrigem);
         System.out.printf("Valor da transferência: R$%.2f%n", valor);
-        System.out.println("Conta para crédito: " + numeroContaDestino);
+        System.out.println("Conta de crédito: " + numeroContaDestino);
         System.out.println();
         System.out.printf("Transferência efetuada com sucesso! %nO saldo atualizado é de R$%.2f.%n%n", contaOrigem.getSaldo());
         System.out.printf("Transferência recebida com sucesso! %nO saldo atualizado é de R$%.2f. %n%n", contaDestino.getSaldo());
