@@ -8,7 +8,7 @@ public class ObtemComandoimpl implements ObtemComando{
     public int execute() {
         Scanner entrada = new Scanner(System.in);
         System.out.print("Digite a opção desejada:");
-
-        return entrada.nextInt();
+        int comando = entrada.nextInt();
+        return comando;
     }
 }

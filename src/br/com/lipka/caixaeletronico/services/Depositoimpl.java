@@ -1,24 +1,22 @@
 package br.com.lipka.caixaeletronico.services;
 
 import br.com.lipka.caixaeletronico.repository.MemoriaContaRepository;
+import br.com.lipka.caixaeletronico.model.Conta;
 
-import java.util.Scanner;
+public class Depositoimpl implements Deposito {
 
-public class Depositoimpl implements Deposito{
-    private double saldo;
+    private final MemoriaContaRepository repository;
 
-    public Depositoimpl(MemoriaContaRepository repository) {
-    }
+    public Depositoimpl(MemoriaContaRepository repository) {this.repository = repository;}
+
 
     @Override
-    public double execute(double valor,String numeroDaConta) {
-        System.out.println("Digite o numero da conta:");
-        Scanner entrada = new Scanner(System.in);
-        numeroDaConta = entrada.nextLine();
+    public void execute(int numeroDaConta, int valor) {
+       Conta conta;
+       conta= repository.findById(numeroDaConta);
+       conta.adicionaSaldo(valor);
+        System.out.printf("valor Depositado! Seu Saldo atual é R$ %.2f%n%n", conta.getSaldo());
 
-        System.out.println("Digite o valor desejado:");
-        Scanner entrada2 = new Scanner(System.in);
-        valor = entrada2.nextDouble();
-        return saldo + valor;
+
     }
 }

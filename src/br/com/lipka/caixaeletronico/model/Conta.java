@@ -4,6 +4,8 @@ public class Conta {
     private int numeroDaConta;
     private double saldo;
 
+    private double numeroContaDestino;
+
     public Conta() {
         saldo = 0;
     }
@@ -16,19 +18,31 @@ public class Conta {
         this.numeroDaConta = numeroDaConta;
     }
 
-    public double getSaldo(){
+    public double getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(double valor) {
-        saldo = saldo + valor;
+
+
+   /** public double getNumeroContaDestino() {
+        return numeroContaDestino;
     }
 
-    public boolean retirarSaldo(double valor) {
-        if(saldo >= valor) {
+
+    public void setNumeroContaDestido(double numeroContaDestido) {
+        this.numeroContaDestino = numeroContaDestido;
+    }
+*/
+    public void adicionaSaldo(int valor) {
+        saldo = saldo + valor;
+
+    }
+
+    public boolean retirarSaldo(int valor) {
+        if (saldo >= valor) {
             saldo = saldo - valor;
             return true;
-        } else{
+        } else {
             System.out.println("Saldo insuficiente!");
             return false;
         }

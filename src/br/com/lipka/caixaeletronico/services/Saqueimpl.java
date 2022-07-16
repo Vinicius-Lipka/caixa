@@ -2,30 +2,22 @@ package br.com.lipka.caixaeletronico.services;
 
 import br.com.lipka.caixaeletronico.repository.MemoriaContaRepository;
 
-import java.util.Scanner;
+import br.com.lipka.caixaeletronico.model.Conta;
 
-public class Saqueimpl implements Saque{
-    private double saldo;
+public class Saqueimpl implements Saque{ private final MemoriaContaRepository repository;
 
-    public Saqueimpl(MemoriaContaRepository repository) {
-    }
+    public Saqueimpl(MemoriaContaRepository repository) {this.repository = repository;}
 
     @Override
-    public double execute(double valor,String numeroDaConta){
-        System.out.println("Digite o número da conta:");
-        Scanner entrada = new Scanner(System.in);
-        numeroDaConta = entrada.nextLine();
+    public void execute(int numeroDaConta, int valor){
+        Conta conta;
+        conta = repository.findById(numeroDaConta);
 
-        System.out.println("Digite o valor desejado:");
-        Scanner entrada2 = new Scanner(System.in);
-        valor = entrada2.nextDouble();
+       conta.retirarSaldo(valor);
 
-        if (valor < saldo) {
-            System.out.println("Saldo insuficiente!");
-        } else {
-            this.saldo -= valor;
-            System.out.println("Saldoatual:" + saldo);
-        }
-        return saldo;
+
+
+            System.out.printf("Saque Efetuado! Seu saldo atual é R$%.2f%n%n", conta.getSaldo());
+
     }
 }

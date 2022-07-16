@@ -10,7 +10,7 @@ public class App {
         while (selecionaComando.executar()) {
             System.out.println("execute um novo comando!");
         }
-            System.out.println("Caixa eletronico desligando!");
+            System.out.println("Caixa eletronico desligado!");
 
     }
 }

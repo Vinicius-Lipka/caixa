@@ -13,7 +13,7 @@ public class SelecionaComando {
     public boolean executar() {
         listarComandos.execute();
         int comando = obtemComando.execute();
-        return executarComandoEspecifico.executar(comando);
+        return executarComandoEspecifico.execute(comando);
     }
 
 }
