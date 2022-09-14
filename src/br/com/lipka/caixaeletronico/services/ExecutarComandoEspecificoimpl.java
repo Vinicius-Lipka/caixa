@@ -59,7 +59,7 @@ public class ExecutarComandoEspecificoimpl implements ExecutarComandoEspecifico 
             int valor = entrada.nextInt();
             System.out.println("Digite o número da conta de destino");
             int numeroContaDestino = entrada.nextInt();
-            this.transferencia.execute(numeroContaOrigem, valor, numeroContaDestino);
+            this.transferencia.execute(valor, numeroContaOrigem, numeroContaDestino);
         } else {
             System.out.println("opcao invalida");
         }
